@@ -86,7 +86,7 @@ int main() {
                     std::string name = readLine("Enter pet name: ");
                     if (name.empty()) throw std::runtime_error("Name cannot be empty.");
 
-                    // ✅ Uses your existing API:
+                    //  Uses existing API:
                     if (t == 1) sim.createDog(name);
                     else if (t == 2) sim.createCat(name);
                     else if (t == 3) sim.createBird(name);
