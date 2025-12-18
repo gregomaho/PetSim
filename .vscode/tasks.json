@@ -1,0 +1,41 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Make output dir",
+      "type": "shell",
+      "command": "mkdir -p \"${workspaceFolder}/PetSim/output\"",
+      "problemMatcher": []
+    },
+    {
+      "label": "Build petsim",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-g",
+        "${workspaceFolder}/PetSim/main.cpp",
+        "${workspaceFolder}/PetSim/Pet.cpp",
+        "${workspaceFolder}/PetSim/EcosystemManager.cpp",
+        "-o",
+        "${workspaceFolder}/PetSim/output/main"
+      ],
+      "dependsOn": "Make output dir",
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      },
+      "problemMatcher": ["$gcc"]
+    },
+    {
+      "label": "Run petsim",
+      "type": "shell",
+      "command": "${workspaceFolder}/PetSim/output/main",
+      "dependsOn": "Build petsim",
+      "group": "test",
+      "problemMatcher": []
+    }
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug petsim",
+      "type": "cppdbg",
+      "request": "launch",
+      "program": "${workspaceFolder}/PetSim/output/main",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "${workspaceFolder}/PetSim",
+      "preLaunchTask": "Build petsim",
+      "externalConsole": false,
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb"
+    }
+  ]
+}
