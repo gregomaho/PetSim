@@ -1,46 +1,11 @@
 {
   // Tasks: Build and Run for PetSim. Keep explicit tasks to avoid auto-generated C/C++ Compile Run entries that lack a `command`.
   // If the C/C++ extension suggests an auto-generated task, either add a `dependsOn` to `Build petsim` or remove the auto task entry.
+{
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "Make output dir",
-      "type": "shell",
-      "command": "mkdir -p \"${workspaceFolder}/PetSim/output\"",
-      "problemMatcher": []
-    },
-    {
-      "label": "Build petsim",
-      "type": "shell",
-      "command": "g++",
-      "args": [
-        "-std=c++17",
-        "-Wall",
-        "-Wextra",
-        "-g",
-        "${workspaceFolder}/PetSim/main.cpp",
-        "${workspaceFolder}/PetSim/Pet.cpp",
-        "${workspaceFolder}/PetSim/EcosystemManager.cpp",
-        "-o",
-        "${workspaceFolder}/PetSim/output/main"
-      ],
-      "dependsOn": "Make output dir",
-      "group": {
-        "kind": "build",
-        "isDefault": true
-      },
-      "problemMatcher": ["$gcc"]
-    },
-    {
-      "label": "Run petsim",
-      "type": "shell",
-      "command": "${workspaceFolder}/PetSim/output/main",
-      "dependsOn": "Build petsim",
-      "group": "test",
-      "problemMatcher": []
-    },
-    {
-      "label": "C/C++ Compile Run: C/C++ Compile Run: Compile",
+      "label": "Build PetSim",
       "type": "shell",
       "command": "g++",
       "args": [
@@ -48,14 +13,28 @@
         "-Wall",
         "-Wextra",
         "-g3",
-        "${workspaceFolder}/PetSim/main.cpp",
-        "${workspaceFolder}/PetSim/Pet.cpp",
-        "${workspaceFolder}/PetSim/EcosystemManager.cpp",
+        "main.cpp",
+        "Environment.cpp",
+        "Pet.cpp",
+        "EcosystemManager.cpp",
         "-o",
-        "${workspaceFolder}/PetSim/output/main"
+        "petsim"
       ],
-      "dependsOn": "Make output dir",
-      "problemMatcher": ["$gcc"]
+      "options": {
+        "cwd": "${workspaceFolder}"
+      },
+      "problemMatcher": ["$gcc"],
+      "group": {
+        "kind": "build",
+        "isDefault": true
+      }
+    },
+    {
+      "label": "Run PetSim",
+      "type": "shell",
+      "command": "${workspaceFolder}/petsim",
+      "dependsOn": "Build PetSim",
+      "problemMatcher": []
     }
   ]
 }
