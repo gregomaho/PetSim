@@ -1,7 +1,6 @@
 {
   // Tasks: Build and Run for PetSim. Keep explicit tasks to avoid auto-generated C/C++ Compile Run entries that lack a `command`.
   // If the C/C++ extension suggests an auto-generated task, either add a `dependsOn` to `Build petsim` or remove the auto task entry.
-{
   "version": "2.0.0",
   "tasks": [
     {
