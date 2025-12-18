@@ -1,4 +1,6 @@
 {
+  // Tasks: Build and Run for PetSim. Keep explicit tasks to avoid auto-generated C/C++ Compile Run entries that lack a `command`.
+  // If the C/C++ extension suggests an auto-generated task, either add a `dependsOn` to `Build petsim` or remove the auto task entry.
   "version": "2.0.0",
   "tasks": [
     {
@@ -36,6 +38,24 @@
       "dependsOn": "Build petsim",
       "group": "test",
       "problemMatcher": []
+    },
+    {
+      "label": "C/C++ Compile Run: C/C++ Compile Run: Compile",
+      "type": "shell",
+      "command": "g++",
+      "args": [
+        "-std=c++17",
+        "-Wall",
+        "-Wextra",
+        "-g3",
+        "${workspaceFolder}/PetSim/main.cpp",
+        "${workspaceFolder}/PetSim/Pet.cpp",
+        "${workspaceFolder}/PetSim/EcosystemManager.cpp",
+        "-o",
+        "${workspaceFolder}/PetSim/output/main"
+      ],
+      "dependsOn": "Make output dir",
+      "problemMatcher": ["$gcc"]
     }
   ]
 }
